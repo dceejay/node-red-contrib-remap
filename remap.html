@@ -157,4 +157,13 @@
     <p>The configuration page will be blank until some test messages have arrived.</p>
     <p>Once some messsages have arrived, the node can be configured to then remove the property, passthru
         the property, or rename that property.</p>
+    <p><ul>
+        <li>&#8856;  Remove this property</li>
+        <li>&#10132; Allow this property through unchanged</li>
+        <li>&#8658;  Rename this property</li>
+        </ul>
+    </p>
+    <p>If you rename two items to have the same new label, then if they are objects they will be merged... If not the last one to be set will overwrite the other.</p>
+    <p>If the resulting new object is blank you can optionally drop the entire msg.</p>
+    <p>You can also then specify the output property that this new object should be attached to. If this is different to the incoming property then the incoming property is removed from the message.</p>
 </script>
