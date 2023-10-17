@@ -23,6 +23,10 @@
         <ol id="node-input-mapping-container" style=" list-style-type:none; margin: 0;"></ol>
         </div>
     </div>
+    <div class="form-row">
+        <input type="checkbox" id="node-input-drop" style="display:inline-block; width:auto; vertical-align:top;">
+        <label for="node-input-drop" style="width:90%;">Drop complete message if resulting property is empty.</label>
+    </div>
     <div class="form-row" id="node-outproperty">
         <label for="node-input-outproperty" style="width:120px;"><i class="fa fa-ellipsis-h"></i> Output Property</label>
         <input type="text" id="node-input-outproperty" style="width:70%;"/>
@@ -35,10 +39,11 @@
         color: '#E2D96E',
         defaults: {
             name: {value:""},
-            property: {value:"payload",},
-            outproperty: {value:"payload",required:true},
+            property: {value:"payload"},
+            outproperty: {value:"payload"},
             map: {value:""},
-            pass: {value:"_BLOCK_"}
+            pass: {value:"_BLOCK_"},
+            drop: {value:false}
         },
         inputs:1,
         outputs:1,
@@ -60,6 +65,7 @@
             $("#node-input-outproperty").typedInput({default:'msg',types:['msg']});
 
             $("#node-input-property").on('change', function() {
+                // $("#node-input-outproperty").typedInput('value',$("#node-input-property").val());
                 if ($("#node-input-property").val() === "") { $("#node-outproperty").hide(); }
                 else { $("#node-outproperty").show(); }
             });
