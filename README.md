@@ -9,6 +9,8 @@ pass them through, drop them, or rename them to a different property.
 This is useful when receiving data from an API that may have lots of extra properties that you
 don't need, and some that just need re-labelling, e.g. latitude to lat for example.
 
+**NOTE**: This node won't work inside a subflow as the editor instance never sees live messages so cannot be configured correctly. Use link call nodes instead if you need to call it from multiple places.
+
 Install
 -------
 
