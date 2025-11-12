@@ -25,14 +25,14 @@ module.exports = function(RED) {
                     node.map[property] = node.map[property] ?? node.pass;
                     if (node.map[property] === "_ALLOW_") {
                         // if existing target is an object then merge rather than overwrite
-                        if (value[property].constructor.name === "Object") {
+                        if (typeof(value[property]) === "object") {
                             op[property] = { ...op[property], ...value[property] };
                         }
                         else { op[property] = value[property]; }
                     }
                     else if (node.map[property] !== "_BLOCK_") {
                         // if existing target is an object then merge rather than overwrite
-                        if (value[property].constructor.name === "Object") {
+                        if (typeof(value[property]) === "object") {
                             op[node.map[property]] = { ...op[node.map[property]], ...value[property] };
                         }
                         else { op[node.map[property]] = value[property]; }
